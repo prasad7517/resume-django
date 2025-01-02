@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #88d8fb, #67f581);
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: url('https://source.unsplash.com/random/1600x400') no-repeat center center/cover;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .nav {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #adadad;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .nav a:hover {
+            background: #777;
+        }
+        .nav .right {
+            margin-left: auto;
+        }
+        .nav .right a {
+            margin-left: 10px;
+        }
+        .content {
+            background: #cbfae6;
+            background: linear-gradient(to right, #88d8fb, #67f581);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .grid-container {
+            display: grid;
+            margin-left: 20%;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .grid-item {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            margin-top: 70px;
+            padding: 10px 0;
+            
+        }
+        .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.spece{
+    width: 80%;
+    
+   
+}
+.btn1{
+    background: #32fa4d;
+    margin-left: 45%;
+    margin-top: 8%;
+    margin-bottom: 15%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+    
+}
+.dropbtn {
+    background: #adadad;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+/* Make it responsive */
+@media (max-width: 600px) {
+    .dropbtn {
+        width: 100%; /* Full width button on small screens */
+    }
+
+    .dropdown-content {
+        position: static; /* Ensure it aligns below the button on small screens */
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>First Step....For the journey of your Professional Life</h1>
+        <h3>Industrial Document Builder</h3>
+    </div><hr>
+    <div  class="nav">
+        <div class="dropdown">
+            <button class="dropbtn"><a href="#">New Features</a></button>
+            <div class="dropdown-content">
+                <a href="#">for fresher</a>
+                <a href="#">for experinced</a>
+                <a href="#">for student</a>
+            </div>
+        </div>
+        <div class="right">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+            <div class="dropdown">
+                <button class="dropbtn">Conect Us!</button>
+                <div class="dropdown-content">
+                    <a href="#">Linkdin</a>
+                    <a href="#">Git-Hub</a>
+                    <a href="#">Email</a>
+                </div>
+            </div>
+        </div>
+    </div><hr>
+    <div class="space">
+        <div class="content">
+            <button class="btn1">
+               <a href="">lets create ! </a> 
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        
+        <div class="content">
+            <div class="grid-container">
+                <!-- Placeholder for additional fields -->
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume1.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="{% url 'temp2' %}">
+                        <img src="{% static 'app/images/resume2.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume3.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                
+                <!-- Add more grid items as needed -->
+            </div>
+            <div class="grid-container">
+                <!-- Placeholder for additional fields -->
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume4.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume5.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume6.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                
+                <!-- Add more grid items as needed -->
+            </div>
+            <div class="grid-container">
+                <!-- Placeholder for additional fields -->
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume7.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume8.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume9.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                
+                <!-- Add more grid items as needed -->
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume10.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="{% url 'temp1' %}">
+                        <img src="{% static 'app/images/resume1.jpeg' %}" alt="Link to Form" width="120px" height="150px">
+                    </a>
+                </div>
+                <div class="grid-item">Field 4
+                    <i class="fas fa-file-alt fa-3x"></i>
+                    <p>Document Icon</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Our Awesome Website. All rights reserved.</p>
+    </div>
+</body>
+</html>

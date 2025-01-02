@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .resume-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+        }
+        .header {
+            background: #333;
+            color: #fff;
+            padding: 10px 15px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .left-column {
+            background: #f4ede6;
+            padding: 15px;
+            border-radius: 5px 0 0 5px;
+        }
+        .profile-pic {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .right-column {
+            padding: 15px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <h1>Resume Generator</h1>
+        </div>
+        <form method="POST" action="{% url 'generate_pdf2' %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-4 left-column">
+                    <div class="form-group">
+                        <label for="full_name">Full Name</label>
+                        <input type="text" class="form-control" id="full_name" name="full_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_number">Phone Number</label>
+                        <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email_address">Email Address</label>
+                        <input type="email" class="form-control" id="email_address" name="email_address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Skills</label>
+                        <textarea class="form-control" id="skills" name="skills" rows="5" required></textarea>
+                    </div>
+                </div>
+                <div class="col-md-8 right-column">
+                    <div class="form-group">
+                        <label for="about_yourself">About Yourself</label>
+                        <textarea class="form-control" id="about_yourself" name="about_yourself" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Experience</label>
+                        <textarea class="form-control" id="experience" name="experience" rows="7" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="technical_skills">Technical Skills</label>
+                        <textarea class="form-control" id="technical_skills" name="technical_skills" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="soft_skills">Soft Skills</label>
+                        <textarea class="form-control" id="soft_skills" name="soft_skills" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Generate PDF</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

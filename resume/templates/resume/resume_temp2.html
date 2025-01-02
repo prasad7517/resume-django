@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .resume-container {
+            background-color: aquamarine;
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 20px auto;
+        }
+        .header {
+            background: #97edfe;
+            color: hsl(320, 85%, 50%);
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .left-column {
+            width: 30%;
+            float: left;
+            background: #f4ede6;
+            padding: 10px;
+            
+        }
+        .right-column {
+            width: 70%;
+            float: right;
+            padding: 10px;
+        }
+        .profile-pic {
+            width: 100%;
+            border-radius: 50%;
+        }
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            {{ full_name }}
+        </div>
+        <div class="left-column">
+            <p><strong>Address:</strong> {{ address }}</p>
+            <p><strong>Phone:</strong> {{ phone_number }}</p>
+            <p><strong>Email:</strong> {{ email_address }}</p>
+            <p><strong>Skills:</strong><br>{{ skills|linebreaksbr }}</p>
+        </div>
+        <div class="right-column">
+            <p><strong>About Yourself:</strong><br>{{ about_yourself|linebreaksbr }}</p>
+            <p><strong>Experience:</strong><br>{{ experience|linebreaksbr }}</p>
+            <p><strong>Technical Skills:</strong><br>{{ technical_skills|linebreaksbr }}</p>
+            <p><strong>Soft Skills:</strong><br>{{ soft_skills|linebreaksbr }}</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>

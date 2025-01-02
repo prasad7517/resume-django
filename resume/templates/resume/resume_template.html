@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #88d8fb, #67f581);
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: blue;
+        }
+        .section-title {
+            color: blue;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ full_name }}</h1>
+    <hr>
+    <p>{{ address }}</p>
+    <p>{{ phone_number }}</p>
+    <p>{{ email_address }}</p>
+    <div class="content">
+        <div class="section-title">About Yourself</div>
+        <p>{{ about_yourself }}</p>
+    </div>
+    <div class="content">
+        <div class="section-title">Experience</div>
+        <p>{{ experience }}</p>
+    </div>
+    <div class="content">
+        <div class="section-title">Technical Skills</div>
+        <p>{{ technical_skills }}</p>
+    </div>
+    <div class="content">
+        <div class="section-title">Soft Skills</div>
+        <p>{{ soft_skills }}</p>
+    </div>
+</body>
+</html>
