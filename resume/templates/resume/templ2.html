@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        input, textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .add-section-btn {
+            background-color: #5c6bc0;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-section-btn:hover {
+            background-color: #3f51b5;
+        }
+
+        button[type="submit"] {
+            padding: 12px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .field-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Create Your Resume</h1>
+    <form method="POST" action="{% url 'generate_pdf4' %}">
+        {% csrf_token %}
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="title">Professional Title:</label>
+        <input type="text" id="title" name="title">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="profile">Profile (Brief Summary):</label>
+        <textarea id="profile" name="profile" rows="4"></textarea>
+
+        <div class="field-container" id="education-fields">
+            <h3>Education</h3>
+            <label for="education_1">Degree / Institution / Year:</label>
+            <input type="text" name="education" placeholder="E.g., B.Sc Computer Science - XYZ University - 2023">
+        </div>
+
+        <button type="button" class="add-section-btn" onclick="addEducationField()">Add More Education</button>
+
+        <div class="field-container" id="experience-fields">
+            <h3>Experience</h3>
+            <label for="experience_1">Job Title / Company / Years:</label>
+            <input type="text" name="experience" placeholder="E.g., Software Engineer - ABC Corp - 2 years">
+        </div>
+
+        <button type="button" class="add-section-btn" onclick="addExperienceField()">Add More Experience</button>
+
+        <label for="skills">Skills (Comma Separated):</label>
+        <input type="text" id="skills" name="skills" placeholder="E.g., Python, Django, JavaScript">
+
+        <button type="submit">Generate Resume PDF</button>
+    </form>
+</div>
+
+<script>
+    function addEducationField() {
+        const educationFields = document.getElementById('education-fields');
+        const newField = document.createElement('input');
+        newField.type = 'text';
+        newField.name = 'education';
+        newField.placeholder = 'E.g., B.Sc Computer Science - XYZ University - 2023';
+        educationFields.appendChild(newField);
+    }
+
+    function addExperienceField() {
+        const experienceFields = document.getElementById('experience-fields');
+        const newField = document.createElement('input');
+        newField.type = 'text';
+        newField.name = 'experience';
+        newField.placeholder = 'E.g., Software Engineer - ABC Corp - 2 years';
+        experienceFields.appendChild(newField);
+    }
+</script>
+
+</body>
+</html>
